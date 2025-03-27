@@ -1,3 +1,4 @@
+
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import Swal from "sweetalert2";
@@ -6,11 +7,12 @@ import AOS from "aos";
 import { useEffect } from "react";
 import AuthContext from "../context/Authcontext";
 import Input from "../components/shared/Input";
-import loginImage from "../assets/login-img.jpeg"
+import signUpImage from "../assets/login-img.jpeg"
 import Button_Primary from "../components/shared/Button_Primary";
 import Button_Secondary from "../components/shared/Button_Secondary";
-const Login = () => {
-  const { loginUser, loginUserWithGoogle } = useContext(AuthContext);
+
+const SignUp = () => {
+  const { createUser, updateUserProfile, loginUserWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -21,15 +23,40 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
+    const name = form.name.value;
     const email = form.email.value;
+    const photo = form.photo.value;
     const password = form.password.value;
-    const user = { email, password };
+    const user = { name, email, photo, password };
     console.log(user);
-    loginUser(email, password)
+
+    if (!/[A-Z]/.test(password)) {
+      Swal.fire({
+        icon: "error",
+        text: "Must have an Uppercase letter in the password",
+      });
+      return;
+    } else if (!/[a-z]/.test(password)) {
+      Swal.fire({
+        icon: "error",
+        text: "Must have a Lowercase letter in the password",
+      });
+      return;
+    } else if (password.length < 6) {
+      Swal.fire({
+        icon: "error",
+        text: "Password must be at least 6 character",
+      });
+      return;
+    }
+
+    createUser(email, password)
       .then((result) => {
+        // console.log(result);
+        updateUserProfile({ displayName: name, photoURL: photo });
         if (result.user) {
           Swal.fire({
-            title: "You successfully login to TastyFork!",
+            title: "You successfully sign up to CineBuzz!",
             icon: "success",
             draggable: true,
           });
@@ -38,7 +65,7 @@ const Login = () => {
         }
       })
       .catch((err) => {
-        // console.log(err);
+        console.log(err);
         Swal.fire({
           icon: "error",
           text: err.message,
@@ -70,13 +97,27 @@ const Login = () => {
 
   return (
     <div className="grid grid-cols-5 gap-6 w-2/3 mx-auto items-center lg:my-16">
-      <div data-aos="fade-right" className={`col-span-2 rounded`}>
-        
+      <div data-aos="fade-right" className="col-span-3">
+        <img className="h-full w-full" src={signUpImage} alt="" />
+      </div>
+      <div data-aos="fade-left" className={`col-span-2 rounded`}>
         <h2 className="text-4xl italic mb-8">
           Welcome back
         </h2>
         <form onSubmit={handleSubmit}>
           <div>
+            <Input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              label="Name"
+            ></Input>
+            <Input
+              type="text"
+              name="photo"
+              placeholder="Your Photo URL"
+              label="Photo"
+            ></Input>
             <Input
               type="email"
               name="email"
@@ -92,19 +133,16 @@ const Login = () => {
             label="Password"
           ></Input>
           </div>
-          <div>
-            <a className="link underline">Forgot password?</a>
-          </div>
           <div className="block">
-          <Button_Primary text="Login"></Button_Primary>
+          <Button_Primary text="Sign Up"></Button_Primary>
           </div>
           <p className="mt-4 text-center">
-            Don't have an account? Please{" "}
+            Already have an account? Please{" "}
             <Link
               className="text-green-600 font-bold hover:underline"
-              to="/signUp"
+              to="/login"
             >
-              Sign Up
+              Login
             </Link>
           </p>
         </form>
@@ -121,11 +159,8 @@ const Login = () => {
           </button>
         </div>
       </div>
-      <div data-aos="zoom-in" className="col-span-3">
-        <img  className="h-full w-full" src={loginImage} alt="" />
-      </div>
     </div>
   );
 };
 
-export default Login;
+export default SignUp;
