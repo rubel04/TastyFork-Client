@@ -9,8 +9,8 @@ const AllFoods = () => {
   }, []);
   return (
     <div className="max-w-11/12 mx-auto">
-      <div className="flex items-center justify-between">
-        <h2 className="text-4xl font-bold my-12">All Foods</h2>
+      <div className="md:flex md:items-center  md:justify-between my-4 md:my-12">
+        <h2 className="text-4xl font-bold">All Foods</h2>
         <input
           name="search"
           placeholder="Search foods by name"

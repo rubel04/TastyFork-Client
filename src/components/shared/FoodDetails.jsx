@@ -22,7 +22,7 @@ const FoodDetails = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <img
-          className="border border-gray-200 rounded-2xl p-2"
+          className="w-full border border-gray-200 rounded-2xl p-2"
           src={image}
           alt=""
         />

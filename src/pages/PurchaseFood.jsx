@@ -35,7 +35,6 @@ const PurchaseFood = () => {
               draggable: true,
             });
             navigate("/my_orders")
-            // location.state ? navigate(location.state) : navigate("/");
           }
     })
     .catch(err => {
@@ -50,10 +49,10 @@ const PurchaseFood = () => {
 
   return (
     <div
-      className="bg-cover bg-center w-full h-screen flex flex-col items-center justify-center"
+      className="bg-cover bg-center w-full md:h-screen flex flex-col items-center justify-center"
       style={{ backgroundImage: `url(${image})` }}
     >
-      <form onSubmit={handlePurchaseFood} className="grid grid-cols-1 md:grid-cols-2 gap-6 w-1/2 mx-auto bg-white/50 backdrop-blur-md px-10 py-20 rounded">
+      <form onSubmit={handlePurchaseFood} className="md:grid grid-cols-1 md:grid-cols-2 gap-6 w-full md:w-1/2 mx-auto bg-white/50 backdrop-blur-md p-6 md:px-10 md:py-20 rounded">
         <Input
           type="text"
           label="Food Name"
@@ -91,7 +90,7 @@ const PurchaseFood = () => {
           defaultValue={buyer?.email}
         ></Input>
         <button
-          className={`col-span-2 text-xl text-center font-medium text-white py-3 px-6 cursor-pointer my-2 rounded bg-green-600 hover:bg-green-700 transition`}
+          className={`w-full col-span-2 text-xl text-center font-medium text-white py-1.5 md:py-3 px-4 md:px-6 cursor-pointer my-2 rounded bg-green-600 hover:bg-green-700 transition`}
         >
           Purchase
         </button>

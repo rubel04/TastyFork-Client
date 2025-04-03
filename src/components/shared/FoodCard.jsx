@@ -22,7 +22,7 @@ const FoodCard = (props) => {
         <div className="card-actions">
           <Link
             to={`/food/${_id}`}
-            className="btn btn-sm px-4 bg-[#403F3F] hover:bg-green-600 text-white hover:text-black font-semibold text-base hover:underline underline-offset-2 decoration-1 decoration-black"
+            className="btn btn-sm px-4 bg-sky-900 hover:bg-amber-500 text-white hover:text-black font-semibold text-base hover:underline underline-offset-2 decoration-1 decoration-black"
           >
             View Details
           </Link>

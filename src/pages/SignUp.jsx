@@ -96,7 +96,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="grid grid-cols-5 gap-6 w-2/3 mx-auto items-center lg:my-16">
+    <div className="md:grid grid-cols-5 gap-6 w-11/12 md:w-2/3 mx-auto items-center lg:my-16">
       <div data-aos="fade-right" className="col-span-3">
         <img className="h-full w-full" src={signUpImage} alt="" />
       </div>

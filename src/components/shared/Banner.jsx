@@ -1,24 +1,35 @@
-import { Link } from "react-router-dom";
-import bannerBg from "../../assets/banner.jpg"
+import { Link, useLocation } from "react-router-dom";
+import Navbar from "./Navbar";
 import Button_Primary from "./Button_Primary";
+// import bannerBg from "../assets/banner.jpg"
 
 const Banner = () => {
-    return (
-        <div className="relative w-full h-[500px] lg:h-[700px] bg-cover bg-center "
-            style={{ backgroundImage: `url(${bannerBg})` }}>
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center px-4">
-                <h1 className="text-4xl md:text-6xl font-bold text-white">
-                    Welcome to TastyFork
-                </h1>
-                <p className="text-lg md:text-2xl text-gray-300 my-4">
-                Discover Delicious Food, Buy with Ease, and Savor Every Bite!
-                </p>
-                <Link to={'/all_foods'}>
-                    <Button_Primary text="Purchase" type="lg"></Button_Primary>
-                </Link>
-            </div>
+  const { pathname } = useLocation();
+  return (
+    <div
+      className="w-full h-[400px] lg:h-screen bg-cover bg-center"
+      style={{
+        backgroundImage: `url("https://i.ibb.co.com/DfJMF0p/Vegetable-Pasta.webp")`,
+      }}
+    >
+      <div className="bg-black/60 h-full">
+        <div className="text-white">
+          {pathname === "/" && <Navbar></Navbar>}
         </div>
-    );
+        <div className="h-full flex flex-col items-center justify-center text-center px-4">
+          <h1 className="text-4xl md:text-7xl font-bold text-white">
+            Welcome to TastyFork
+          </h1>
+          <p className="text-lg md:text-2xl text-gray-300 mt-4">
+            Discover Delicious Food, Buy with Ease, and Savor Every Bite!
+          </p>
+          <Link to={"/all_foods"}>
+            <Button_Primary text="Purchase Now"></Button_Primary>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Banner;
