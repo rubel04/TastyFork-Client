@@ -13,6 +13,7 @@ const FoodDetails = () => {
     description,
     available_status,
     category,
+    purchaseCount
   } = food;
   return (
     <div className="w-11/12 mx-auto">
@@ -44,6 +45,10 @@ const FoodDetails = () => {
           <div>
             <p className="text-lg font-medium">Country:</p>
             <p className="text-lg text-gray-600">{country}</p>
+          </div>
+          <div>
+            <p className="text-lg font-medium">Purchase:</p>
+            <p className="text-lg text-gray-600">{purchaseCount}</p>
           </div>
           <div>
             <p className="text-lg font-medium">Price:</p>

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const FoodCard = (props) => {
   const { food } = props || {};
-  const { _id, food_name, image, price, food_quantity, country, description } =
+  const { _id, food_name, image, price, food_quantity, country, description, purchaseCount } =
     food;
   return (
     <div className="card bg-base-10 border border-b-0 p-2 rounded-b-none border-gray-200">
@@ -18,6 +18,7 @@ const FoodCard = (props) => {
         <p className="text-gray-700 mb-1">Quantity: {food_quantity}</p>
         <p className="text-gray-700 mb-1">Country: {country}</p>
         <p className="text-gray-700 mb-1">Price: {price}</p>
+        <p className="text-gray-700 mb-1">Purchase: {purchaseCount}</p>
         <p className="text-gray-700 mb-2">{description.slice(0, 60)}...</p>
         <div className="card-actions">
           <Link

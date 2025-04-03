@@ -17,10 +17,7 @@ const AddFood = () => {
     foodData.purchaseCount = 0;
 
     console.log(foodData);
-
-    axios.put('http://localhost:5000/update')
-    .then(res => console.log(res.data))
-
+    
     axios
       .post(`http://localhost:5000/add_food?email=${user?.email}`, foodData)
       .then((res) => {

@@ -1,7 +1,7 @@
 const Input = (props) => {
   const { type, name, label, placeholder,defaultValue,disabled,readOnly } = props || {};
   return (
-    <div className="">
+    <div>
       <label className="text-sm">{label}{label ? "*" : "" }</label>
       <br />
       <input
