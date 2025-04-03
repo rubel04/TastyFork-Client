@@ -11,11 +11,13 @@ import PrivateRoute from "./PrivateRoute";
 import AddFood from "../pages/AddFood";
 import MyFoods from "../pages/MyFoods";
 import Gallery from "../pages/Gallery";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout></MainLayout>,
+      errorElement: <ErrorPage/> ,
       children: [
         {
           path: "/",
