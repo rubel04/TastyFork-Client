@@ -1,11 +1,15 @@
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeProvider";
+
 const Input = (props) => {
   const { type, name, label, placeholder,defaultValue,disabled,readOnly } = props || {};
+  const { theme } = useContext(ThemeContext);
   return (
     <div>
       <label className="text-sm">{label}{label ? "*" : "" }</label>
       <br />
       <input
-        className="w-full bg-gray-100 p-2 md:p-3 border border-gray-200 placeholder:text-[13px] placeholder:pl-2 my-2 rounded"
+        className={`${theme === "dark" ? "" : "bg-gray-100"} w-full  p-2 md:p-3 border border-gray-200 placeholder:text-[13px] placeholder:pl-2 my-2 rounded`}
         type={type}
         name={name}
         placeholder={placeholder}

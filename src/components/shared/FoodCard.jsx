@@ -1,11 +1,14 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../../context/ThemeProvider";
 
 const FoodCard = (props) => {
+  const {theme} = useContext(ThemeContext);
   const { food } = props || {};
   const { _id, food_name, image, price, food_quantity, country, description, purchaseCount } =
     food;
   return (
-    <div className="card bg-base-10 border border-b-0 p-2 rounded-b-none border-gray-200">
+    <div className={`${theme === "dark" ? "text-gray-300" : "text-gray-600"} card border border-b-0 p-2 rounded-b-none border-gray-200 `}>
       <figure>
         <img
           className="w-full rounded-t-xl h-52 object-cover"
@@ -14,12 +17,12 @@ const FoodCard = (props) => {
         />
       </figure>
       <div className="p-0.5">
-        <h2 className="text-2xl font-medium mb-2">{food_name}</h2>
-        <p className="text-gray-700 mb-1">Quantity: {food_quantity}</p>
-        <p className="text-gray-700 mb-1">Country: {country}</p>
-        <p className="text-gray-700 mb-1">Price: {price}</p>
-        <p className="text-gray-700 mb-1">Purchase: {purchaseCount}</p>
-        <p className="text-gray-700 mb-2">{description.slice(0, 60)}...</p>
+        <h2 className={`${theme === "dark" ? "text-gray-200" : "text-black"} text-2xl font-medium mb-1`}>{food_name}</h2>
+        <p className="mb-1">Quantity: {food_quantity}</p>
+        <p className="mb-1">Country: {country}</p>
+        <p className="mb-1">Price: {price}</p>
+        <p className="mb-1">Purchase: {purchaseCount}</p>
+        <p className="mb-2">{description.slice(0, 60)}...</p>
         <div className="card-actions">
           <Link
             to={`/food/${_id}`}

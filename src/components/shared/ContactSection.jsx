@@ -1,11 +1,24 @@
+import { useContext } from "react";
 import Button_Primary from "./Button_Primary";
+import { ThemeContext } from "../../context/ThemeProvider";
 
 const ContactSection = () => {
+  const { theme } = useContext(ThemeContext);
   return (
-    <div className="w-full bg-gray-100 py-8 md:py-16 px-4">
+    <div
+      className={`${
+        theme === "dark" ? "bg-black" : "bg-gray-100"
+      } w-full py-8 md:py-16 px-4`}
+    >
       <div className="md:w-11/12 mx-auto grid md:grid-cols-2 gap-8">
-        <div className="bg-white shadow-md rounded-lg p-2 md:p-6">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">
+        <div
+          className={`${
+            theme === "dark"
+              ? "bg-black text-gray-200"
+              : "bg-gray-100 text-gray-600"
+          } shadow-md rounded-lg p-2 md:p-6`}
+        >
+          <h2 className="text-3xl font-bold mb-4">
             Our Location
           </h2>
           <iframe
@@ -16,15 +29,21 @@ const ContactSection = () => {
           ></iframe>
         </div>
 
-        <div className="bg-white shadow-md rounded-lg p-6">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">Contact Us</h2>
-          <p className="text-gray-600 mb-2">
+        <div
+          className={`${
+            theme === "dark"
+              ? "bg-black text-gray-200"
+              : "bg-gray-100 text-gray-600"
+          } shadow-md rounded-lg p-6`}
+        >
+          <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
+          <p className="mb-2">
             <strong>Phone:</strong> +880 1234-567890
           </p>
-          <p className="text-gray-600 mb-2">
+          <p className="mb-2">
             <strong>Email:</strong> contact@tastyfork.com
           </p>
-          <p className="text-gray-600 mb-4">
+          <p className="mb-4">
             <strong>Address:</strong> 123, Dhanmondi, Dhaka
           </p>
 

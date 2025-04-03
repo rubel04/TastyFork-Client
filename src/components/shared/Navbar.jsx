@@ -3,9 +3,11 @@ import Button_Primary from "./Button_Primary";
 import { useContext } from "react";
 import AuthContext from "../../context/Authcontext";
 import Swal from "sweetalert2";
+import { ThemeContext } from "../../context/ThemeProvider";
 
 const Navbar = () => {
   const { user, logOutUser } = useContext(AuthContext);
+  const {toggleTheme} = useContext(ThemeContext);
   const navigate = useNavigate();
   const navlinks = (
     <>
@@ -63,7 +65,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-black"
+            className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow text-black bg-white"
           >
             {navlinks}
           </ul>
@@ -77,6 +79,8 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navlinks}</ul>
       </div>
       <div className="navbar-end items-center">
+        {/* <button onClick={toggleTheme}>change theme</button> */}
+        
         {user ? (
           <div className="flex gap-2 md:gap-4 items-center">
             <button
@@ -95,7 +99,7 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex={0}
-                className={`dropdown-content menu bg-base-100 rounded-box z-1 w-38 p-2`}
+                className={`dropdown-content menu rounded-box z-1 w-38 p-2 bg-white`}
               >
                 <li>
                   <NavLink to="/my_foods">My Foods</NavLink>
@@ -114,6 +118,7 @@ const Navbar = () => {
             <Button_Primary text="Login"></Button_Primary>
           </NavLink>
         )}
+        <input onClick={toggleTheme} type="checkbox" value="synthwave" className="toggle theme-controller bg-white" />
       </div>
     </div>
   );
