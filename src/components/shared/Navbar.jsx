@@ -4,10 +4,11 @@ import { useContext } from "react";
 import AuthContext from "../../context/Authcontext";
 import Swal from "sweetalert2";
 import { ThemeContext } from "../../context/ThemeProvider";
+import { BsFillBrightnessHighFill, BsMoonStarsFill } from "react-icons/bs";
 
 const Navbar = () => {
   const { user, logOutUser } = useContext(AuthContext);
-  const {toggleTheme} = useContext(ThemeContext);
+  const { toggleTheme, theme } = useContext(ThemeContext);
   const navigate = useNavigate();
   const navlinks = (
     <>
@@ -79,8 +80,17 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navlinks}</ul>
       </div>
       <div className="navbar-end items-center">
-        {/* <button onClick={toggleTheme}>change theme</button> */}
-        
+      <button
+          className="text-3xl md:text-4xl cursor-pointer mr-4"
+          onClick={toggleTheme}
+        >
+          {theme === "dark" ? (
+            <BsFillBrightnessHighFill />
+          ) : (
+            <BsMoonStarsFill />
+          )}
+        </button>
+
         {user ? (
           <div className="flex gap-2 md:gap-4 items-center">
             <button
@@ -89,7 +99,7 @@ const Navbar = () => {
             >
               Logout
             </button>
-            <div className="dropdown dropdown-bottom dropdown-end cursor-pointer text-black">
+            <div className="dropdown md:w-full w-14 dropdown-bottom dropdown-end cursor-pointer text-black">
               <div tabIndex={0} role="button" className="m-1">
                 <img
                   className="h-8 md:h-12 w-8 md:w-12 rounded-full border border-green-600"
@@ -117,8 +127,7 @@ const Navbar = () => {
           <NavLink to="/login">
             <Button_Primary text="Login"></Button_Primary>
           </NavLink>
-        )}
-        <input onClick={toggleTheme} type="checkbox" value="synthwave" className="toggle theme-controller bg-white" />
+        )}        
       </div>
     </div>
   );
