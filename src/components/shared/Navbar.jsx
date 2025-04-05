@@ -28,7 +28,7 @@ const Navbar = () => {
     logOutUser()
       .then(() => {
         Swal.fire({
-          title: "You successfully logout to CineBuzz!",
+          title: "You successfully logout to TastyFork!",
           icon: "success",
           draggable: true,
         });

@@ -56,7 +56,7 @@ const SignUp = () => {
         updateUserProfile({ displayName: name, photoURL: photo });
         if (result.user) {
           Swal.fire({
-            title: "You successfully sign up to CineBuzz!",
+            title: "You successfully sign up to TastyFork!",
             icon: "success",
             draggable: true,
           });

@@ -1,28 +1,26 @@
-import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../context/Authcontext";
 import { RiDeleteBack2Line } from "react-icons/ri";
-import Swal from "sweetalert2";
 import { BiEditAlt } from "react-icons/bi";
 import UpdateMyFood from "./UpdateMyFood";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const MyFoods = () => {
   const [myFoods, setMyFoods] = useState([]);
-  const [selectedFood,setSelectedFood] = useState({});
+  const [selectedFood, setSelectedFood] = useState({});
   const { user } = useContext(AuthContext);
+  const axiosSecure = useAxiosSecure();
   const email = user?.email;
   useEffect(() => {
-    axios
-      .get(`http://localhost:5000/my_foods?email=${email}`)
+    axiosSecure
+      .get(`/my_foods?email=${email}`)
       .then((res) => setMyFoods(res.data));
-  }, [email]);
+  }, [axiosSecure, email]);
 
   const handleUpdateFood = (food) => {
     setSelectedFood(food);
     document.getElementById("my_modal_3").showModal();
-    
   };
-
 
   //   const handleDeleteFood = (id) => {
   //     axios
