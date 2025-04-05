@@ -24,7 +24,7 @@ const MyFoods = () => {
 
   //   const handleDeleteFood = (id) => {
   //     axios
-  //       .delete(`http://localhost:5000/my_orders/${id}`)
+  //       .delete(`https://tasty-fork-server.vercel.app/my_orders/${id}`)
   //       .then((res) => {
   //         console.log(res.data);
   //         if (res.data.deletedCount > 0) {

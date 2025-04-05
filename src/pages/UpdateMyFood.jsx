@@ -13,7 +13,7 @@ const UpdateMyFood = (props) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const updateFoodData = Object.fromEntries(formData.entries());
-    axios.patch(`http://localhost:5000/update_food/${foodId}`, updateFoodData)
+    axios.patch(`https://tasty-fork-server.vercel.app/update_food/${foodId}`, updateFoodData)
     .then((res) => {
         console.log(res.data);
       if (res.data.modifiedCount > 0) {

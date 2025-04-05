@@ -7,7 +7,7 @@ const AllFoods = () => {
   const [search, setSearch] = useState("");
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/foods?search=${search}`)
+      .get(`https://tasty-fork-server.vercel.app/foods?search=${search}`)
       .then((res) => setFoods(res.data));
   }, [search]);
 

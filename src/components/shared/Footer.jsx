@@ -4,9 +4,9 @@ const Footer = () => {
       <aside>
         <img className="w-16 object-cover" src="/logo.png" alt="" />
         <p>
-          ACME Industries Ltd.
+          TastyFork Ltd.
           <br />
-          Providing reliable tech since 1992
+          Taste the Magic, One Fork at a Time.
         </p>
       </aside>
       <nav>

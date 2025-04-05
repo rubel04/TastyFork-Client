@@ -50,12 +50,12 @@ const router = createBrowserRouter([
         {
           path: "/food/:id",
           element: <FoodDetails />,
-          loader: ({params}) => fetch(`http://localhost:5000/food/${params.id}`)
+          loader: ({params}) => fetch(`https://tasty-fork-server.vercel.app/food/${params.id}`)
         },
         {
           path: "/purchase/:id",
           element: <PrivateRoute><PurchaseFood /></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/food/${params.id}`)
+          loader: ({params}) => fetch(`https://tasty-fork-server.vercel.app/food/${params.id}`)
         },
         {
           path: "/my_orders",

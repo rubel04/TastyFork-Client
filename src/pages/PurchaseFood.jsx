@@ -49,7 +49,7 @@ const PurchaseFood = () => {
       return;
     }
     axios
-      .post("http://localhost:5000/orders", purchaseFood)
+      .post("https://tasty-fork-server.vercel.app/orders", purchaseFood)
       .then((res) => {
         if (res.data.insertedId) {
           Swal.fire({

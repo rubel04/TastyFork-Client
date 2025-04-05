@@ -8,7 +8,7 @@ const TopFoods = () => {
   const [foods, setFoods] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/foods?limit=6")
+      .get("https://tasty-fork-server.vercel.app/foods?limit=6")
       .then((res) => setFoods(res.data));
   }, []);
   return (

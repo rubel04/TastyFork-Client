@@ -10,7 +10,7 @@ const MyOrders = () => {
   const email = user?.email;
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/my_orders?email=${email}`)
+      .get(`https://tasty-fork-server.vercel.app/my_orders?email=${email}`)
       .then((res) => setMyFoods(res.data));
   }, [email]);
 
@@ -18,7 +18,7 @@ const MyOrders = () => {
 
   const handleDeleteFood = (id) => {
     axios
-      .delete(`http://localhost:5000/my_orders/${id}`)
+      .delete(`https://tasty-fork-server.vercel.app/my_orders/${id}`)
       .then((res) => {
         console.log(res.data);
         if (res.data.deletedCount > 0) {

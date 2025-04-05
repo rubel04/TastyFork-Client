@@ -19,7 +19,7 @@ const AddFood = () => {
     console.log(foodData);
     
     axios
-      .post(`http://localhost:5000/add_food?email=${user?.email}`, foodData)
+      .post(`https://tasty-fork-server.vercel.app/add_food?email=${user?.email}`, foodData)
       .then((res) => {
         if (res.data.insertedId) {
           Swal.fire({
