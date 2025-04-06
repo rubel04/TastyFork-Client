@@ -5,7 +5,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 const UpdateMyFood = (props) => {
-  const { food } = props || {};
+  const { food, setMyFoods } = props || {};
 //   console.log(food);
   const { user } = useContext(AuthContext);
 
@@ -15,7 +15,12 @@ const UpdateMyFood = (props) => {
     const updateFoodData = Object.fromEntries(formData.entries());
     axios.patch(`https://tasty-fork-server.vercel.app/update_food/${foodId}`, updateFoodData)
     .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
+        setMyFoods((prevFoods) =>
+          prevFoods.map(food =>
+            food._id === foodId ? { ...food, ...updateFoodData } : food
+          )
+        );
       if (res.data.modifiedCount > 0) {
         Swal.fire({
           title: "Food updated successfully.",

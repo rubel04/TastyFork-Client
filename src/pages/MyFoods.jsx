@@ -22,26 +22,6 @@ const MyFoods = () => {
     document.getElementById("my_modal_3").showModal();
   };
 
-  //   const handleDeleteFood = (id) => {
-  //     axios
-  //       .delete(`https://tasty-fork-server.vercel.app/my_orders/${id}`)
-  //       .then((res) => {
-  //         console.log(res.data);
-  //         if (res.data.deletedCount > 0) {
-  //           const remainingFoods = myFoods.filter((food) => food._id !== id);
-  //           setMyFoods(remainingFoods);
-  //           Swal.fire({
-  //             title: "Your order has been successfully removed from My Foods.",
-  //             icon: "success",
-  //             draggable: true,
-  //           });
-  //         }
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       });
-  //   };
-
   return (
     <div className="overflow-x-auto w-11/12 mx-auto my-8">
       <table className="table">
@@ -75,15 +55,8 @@ const MyFoods = () => {
                 >
                   <BiEditAlt />
                 </button>
-
-                <button
-                  //   onClick={() => handleDeleteFood(food?._id)}
-                  className="text-2xl cursor-pointer text-red-400"
-                >
-                  <RiDeleteBack2Line />
-                </button>
               </td>
-              <UpdateMyFood food={selectedFood}></UpdateMyFood>
+              <UpdateMyFood food={selectedFood} setMyFoods={setMyFoods}></UpdateMyFood>
             </tr>
           ))}
         </tbody>
