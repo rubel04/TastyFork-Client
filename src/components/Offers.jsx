@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
 import Button_Primary from "./shared/Button_Primary";
+import "aos/dist/aos.css";
+import AOS from "aos";
+import { useEffect } from "react";
 
 const Offers = () => {
+    useEffect(() => {
+      AOS.init({ duration: 3000 });
+    }, []);
   return (
     <div
       className="w-full md:h-[600px] bg-cover bg-center mt-16"
@@ -28,7 +34,7 @@ const Offers = () => {
           </div>
           {/* image here */}
           <div className="flex-1 md:mt-16">
-            <img
+            <img data-aos="zoom-in"
               className="w-full bg-transparent"
               src="https://demo.bravisthemes.com/wellfood/wp-content/uploads/2025/01/img-ss4-h1-747x640.webp"
               alt=""

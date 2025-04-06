@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 import { Thumbnails } from "yet-another-react-lightbox/plugins";
+import "aos/dist/aos.css";
+import AOS from "aos";
 
 const Gallery = () => {
   const [open, setOpen] = useState(false);
@@ -19,13 +21,19 @@ const Gallery = () => {
     { src: "https://i.ibb.co.com/6cqr4qnz/gallery-9.jpg" },
     { src: "https://i.ibb.co.com/RkNzckyq/gallery-10.jpg" },
   ];
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
 
   return (
     <div className="w-9/12 mx-auto">
       <div>
         <h2 className="text-4xl text-center font-bold my-12">Our Gallery</h2>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div
+        data-aos="flip-left"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+      >
         {images.map((image) => (
           <div key={image}>
             <img

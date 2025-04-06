@@ -116,14 +116,14 @@ const Navbar = () => {
           <div className="flex gap-2 md:gap-4 items-center">
             <button
               onClick={handleLogout}
-              className={`text-xl text-white text-center font-medium py-1 md:py-3 px-4 md:px-6 cursor-pointer my-2 bg-sky-900 border border-sky-900 hover:bg-sky-800 transition rounded-full`}
+              className={`text-xl text-white text-center font-medium py-1 md:py-2 px-4 md:px-6 cursor-pointer my-2 bg-sky-900 border border-sky-900 hover:bg-sky-800 transition rounded-full`}
             >
               Logout
             </button>
             <div className="dropdown md:w-full w-14 dropdown-bottom dropdown-end cursor-pointer text-black">
               <div tabIndex={0} role="button" className="m-1">
                 <img
-                  className="h-8 md:h-12 w-8 md:w-12 rounded-full border border-green-600"
+                  className="h-8 md:h-12 w-8 md:w-12 rounded-full border-2 border-sky-900"
                   src={user.photoURL}
                   alt="Profile-picture"
                 />

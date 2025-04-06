@@ -1,9 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import Button_Primary from "./Button_Primary";
-// import bannerBg from "../assets/banner.jpg"
+import { useEffect } from "react";
+import "aos/dist/aos.css";
+import AOS from "aos";
 
 const Banner = () => {
+    useEffect(() => {
+      AOS.init({ duration: 2000 });
+    }, []);
   const { pathname } = useLocation();
   return (
     <div
@@ -16,7 +21,7 @@ const Banner = () => {
         <div className="text-white">
           {pathname === "/" && <Navbar></Navbar>}
         </div>
-        <div className="h-full flex flex-col items-center justify-center text-center px-4">
+        <div data-aos="zoom-in-down" className="h-full flex flex-col items-center justify-center text-center px-4">
           <h1 className="text-4xl md:text-7xl font-bold text-white">
             Welcome to TastyFork
           </h1>

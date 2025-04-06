@@ -1,14 +1,32 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../../context/ThemeProvider";
+import AOS from "aos";
+import { useEffect } from "react";
 
 const FoodCard = (props) => {
-  const {theme} = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const { food } = props || {};
-  const { _id, food_name, image, price, food_quantity, country, description, purchaseCount } =
-    food;
+  const {
+    _id,
+    food_name,
+    image,
+    price,
+    food_quantity,
+    country,
+    description,
+    purchaseCount,
+  } = food;
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
   return (
-    <div className={`${theme === "dark" ? "text-gray-300" : "text-gray-600"} card border border-b-0 p-2 rounded-b-none border-gray-200 `}>
+    <div
+    data-aos="fade-up"
+      className={`${
+        theme === "dark" ? "text-gray-300" : "text-gray-600"
+      } card border border-b-0 p-2 rounded-b-none border-gray-200 `}
+    >
       <figure>
         <img
           className="w-full rounded-t-xl h-52 object-cover"
@@ -17,7 +35,13 @@ const FoodCard = (props) => {
         />
       </figure>
       <div className="p-0.5">
-        <h2 className={`${theme === "dark" ? "text-gray-200" : "text-black"} text-2xl font-medium mb-1`}>{food_name}</h2>
+        <h2
+          className={`${
+            theme === "dark" ? "text-gray-200" : "text-black"
+          } text-2xl font-medium mb-1`}
+        >
+          {food_name}
+        </h2>
         <p className="mb-1">Quantity: {food_quantity}</p>
         <p className="mb-1">Country: {country}</p>
         <p className="mb-1">Price: {price}</p>
