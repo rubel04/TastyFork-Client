@@ -71,16 +71,16 @@ const Navbar = () => {
             {navlinks}
           </ul>
         </div>
-        <a className="text-xl italic md:text-3xl font-bold flex items-center gap-1 cursor-pointer">
-          <img className="w-8 md:w-12" src="/logo.png" alt="" />
-          <span className="hidden md:block">TastyFork</span>
+        <a className="text-xl italic md:text-5xl font-bold flex items-center gap-1 cursor-pointer">
+          <img className="w-8 md:w-14" src="/logo.png" alt="" />
+          <span className="hidden md:block font-birthstone">TastyFork</span>
         </a>
       </div>
       <div className="navbar-center hidden lg:flex *:text-xl">
         <ul className="menu menu-horizontal px-1">{navlinks}</ul>
       </div>
       <div className="navbar-end items-center">
-      <button
+        <button
           className="text-3xl md:text-4xl cursor-pointer mr-4"
           onClick={toggleTheme}
         >
@@ -127,7 +127,7 @@ const Navbar = () => {
           <NavLink to="/login">
             <Button_Primary text="Login"></Button_Primary>
           </NavLink>
-        )}        
+        )}
       </div>
     </div>
   );

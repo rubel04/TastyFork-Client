@@ -6,7 +6,7 @@ const Footer = () => {
         <aside>
           <img className="w-16 object-cover" src="/logo.png" alt="" />
           <p className="text-gray-600">
-            <span className="text-2xl font-medium">TastyFork Ltd.</span>
+            <span className="text-5xl font-medium font-birthstone">TastyFork</span>
             <br />
             Taste the Magic, One Fork at a Time.
           </p>
