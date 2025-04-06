@@ -117,7 +117,7 @@ const PurchaseFood = () => {
         {error && <strong>{error}</strong>}
         <button
           disabled={disableBtn}
-          className={`w-full disabled:cursor-not-allowed disabled:bg-green-100 disabled:text-gray-500 col-span-2 text-xl text-center font-medium text-white py-1.5 md:py-3 px-4 md:px-6 cursor-pointer my-2 rounded bg-green-600 hover:bg-green-700 transition`}
+          className={`w-full disabled:cursor-not-allowed disabled:bg-green-100 disabled:text-gray-500 col-span-2 text-xl text-center font-medium text-white py-1.5 md:py-3 px-4 md:px-6 cursor-pointer my-2 rounded bg-sky-900 hover:bg-sky-800 transition`}
         >
           Purchase
         </button>

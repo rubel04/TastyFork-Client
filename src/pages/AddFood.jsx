@@ -4,10 +4,12 @@ import AuthContext from "../context/Authcontext";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { ThemeContext } from "../context/ThemeProvider";
 
 const AddFood = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+    const {theme} = useContext(ThemeContext);
   const handleAddFood = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -45,7 +47,7 @@ const AddFood = () => {
     >
       <form
         onSubmit={handleAddFood}
-        className="w-11/12 max-w-xl mx-auto p-6 rounded bg-white/80 backdrop-blur-sm"
+        className={`${theme === "dark" ? "bg-black/50" : "bg-white/80"} w-11/12 max-w-xl mx-auto p-6 rounded  backdrop-blur-sm`}
       >
         <h2 className="text-2xl font-medium mb-4">Add a New Delicious Food</h2>
         <Input
@@ -103,14 +105,14 @@ const AddFood = () => {
         <div>
           <label className="text-sm">Description*</label>
           <textarea
-            className="w-full bg-gray-100 p-3 border border-gray-200 placeholder:text-[13px] placeholder:pl-2 my-2 rounded"
+            className={`${theme === "dark" ? "" : "bg-gray-100"} w-full p-3 border border-gray-200 placeholder:text-[13px] placeholder:pl-2 my-2 rounded`}
             name="description"
             placeholder="Type ingredients, making procedure, etc"
             id=""
           ></textarea>
         </div>
         <button
-          className={`text-xl text-center font-medium text-white py-3 px-6 w-full cursor-pointer my-2 rounded bg-green-600 hover:bg-green-700 transition`}
+          className={`text-xl text-center font-medium text-white py-3 px-6 w-full cursor-pointer my-2 rounded bg-sky-900 hover:bg-sky-800 transition`}
         >
           Add Food
         </button>

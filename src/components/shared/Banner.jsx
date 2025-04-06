@@ -12,7 +12,7 @@ const Banner = () => {
         backgroundImage: `url("https://i.ibb.co.com/DfJMF0p/Vegetable-Pasta.webp")`,
       }}
     >
-      <div className="bg-black/60 h-full">
+      <div className="bg-black/50 h-full">
         <div className="text-white">
           {pathname === "/" && <Navbar></Navbar>}
         </div>

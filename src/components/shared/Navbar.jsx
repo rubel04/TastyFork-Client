@@ -13,17 +13,34 @@ const Navbar = () => {
   const navlinks = (
     <>
       <li>
-        <NavLink className={({ isActive }) =>
-          isActive
-            ? "text-amber-400 underline shadow-none"
-            : ""
-        } to="/">Home</NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-amber-400 underline shadow-none" : ""
+          }
+          to="/"
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/all_foods">All Foods</NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-amber-400 underline shadow-none" : ""
+          }
+          to="/all_foods"
+        >
+          All Foods
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/gallery">Gallery</NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-amber-400 underline shadow-none" : ""
+          }
+          to="/gallery"
+        >
+          Gallery
+        </NavLink>
       </li>
     </>
   );
@@ -75,7 +92,7 @@ const Navbar = () => {
             {navlinks}
           </ul>
         </div>
-        <a className="text-xl italic md:text-5xl font-bold flex items-center gap-1 cursor-pointer">
+        <a className="text-xl text-white md:text-5xl font-bold flex items-center gap-1 cursor-pointer">
           <img className="w-8 md:w-14" src="/logo.png" alt="" />
           <span className="hidden md:block font-birthstone">TastyFork</span>
         </a>
@@ -116,13 +133,34 @@ const Navbar = () => {
                 className={`dropdown-content menu rounded-box z-1 w-38 p-2 bg-white`}
               >
                 <li>
-                  <NavLink to="/my_foods">My Foods</NavLink>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive ? "text-amber-400 underline shadow-none" : ""
+                    }
+                    to="/my_foods"
+                  >
+                    My Foods
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/add_foods">Add Foods</NavLink>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive ? "text-amber-400 underline shadow-none" : ""
+                    }
+                    to="/add_foods"
+                  >
+                    Add Foods
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/my_orders">My Orders</NavLink>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive ? "text-amber-400 underline shadow-none" : ""
+                    }
+                    to="/my_orders"
+                  >
+                    My Orders
+                  </NavLink>
                 </li>
               </ul>
             </div>

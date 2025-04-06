@@ -59,7 +59,7 @@ const MyOrders = () => {
             <tr>
               <td
                 colSpan="6"
-                className="text-center py-10 text-xl text-amber-500"
+                className="md:text-center py-10 text-xl text-amber-500"
               >
                 Loading...
               </td>
