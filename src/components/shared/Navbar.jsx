@@ -13,7 +13,11 @@ const Navbar = () => {
   const navlinks = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink className={({ isActive }) =>
+          isActive
+            ? "text-amber-400 underline shadow-none"
+            : ""
+        } to="/">Home</NavLink>
       </li>
       <li>
         <NavLink to="/all_foods">All Foods</NavLink>
@@ -66,7 +70,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow text-black bg-white"
+            className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 text-black bg-white"
           >
             {navlinks}
           </ul>

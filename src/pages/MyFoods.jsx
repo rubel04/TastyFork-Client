@@ -27,7 +27,7 @@ const MyFoods = () => {
   return (
     <div className="overflow-x-auto w-11/12 mx-auto my-8">
       <table className="table">
-        <thead className="bg-green-100">
+        <thead className="bg-amber-50">
           <tr className="*:text-base *:text-black">
             <th>No.</th>
             <th>Food Image</th>
