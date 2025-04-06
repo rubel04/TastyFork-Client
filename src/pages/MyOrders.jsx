@@ -3,16 +3,18 @@ import { useContext, useEffect, useState } from "react";
 import AuthContext from "../context/Authcontext";
 import { RiDeleteBack2Line } from "react-icons/ri";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const MyOrders = () => {
   const [myFoods, setMyFoods] = useState([]);
   const { user } = useContext(AuthContext);
+  const axiosSecure = useAxiosSecure();
   const email = user?.email;
   useEffect(() => {
-    axios
-      .get(`https://tasty-fork-server.vercel.app/my_orders?email=${email}`)
+    axiosSecure
+      .get(`/my_orders?email=${email}`)
       .then((res) => setMyFoods(res.data));
-  }, [email]);
+  }, [axiosSecure,email]);
 
   console.log(myFoods)
 
