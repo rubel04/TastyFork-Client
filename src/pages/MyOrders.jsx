@@ -9,14 +9,16 @@ const MyOrders = () => {
   const [myFoods, setMyFoods] = useState([]);
   const { user } = useContext(AuthContext);
   const axiosSecure = useAxiosSecure();
+  const [loading, setLoading] = useState(true);
   const email = user?.email;
   useEffect(() => {
-    axiosSecure
-      .get(`/my_orders?email=${email}`)
-      .then((res) => setMyFoods(res.data));
-  }, [axiosSecure,email]);
+    axiosSecure.get(`/my_orders?email=${email}`).then((res) => {
+      setMyFoods(res.data);
+      setLoading(false);
+    });
+  }, [axiosSecure, email]);
 
-  console.log(myFoods)
+  console.log(myFoods);
 
   const handleDeleteFood = (id) => {
     axios
@@ -24,8 +26,8 @@ const MyOrders = () => {
       .then((res) => {
         console.log(res.data);
         if (res.data.deletedCount > 0) {
-            const remainingFoods = myFoods.filter(food => food._id !== id);
-            setMyFoods(remainingFoods)
+          const remainingFoods = myFoods.filter((food) => food._id !== id);
+          setMyFoods(remainingFoods);
           Swal.fire({
             title: "Your order has been successfully removed from My Foods.",
             icon: "success",
@@ -53,29 +55,44 @@ const MyOrders = () => {
           </tr>
         </thead>
         <tbody>
-          {myFoods.map((food, index) => (
-            <tr
-              key={food._id}
-              className="hover:bg-base-200 transition *:border *:border-gray-200 *:text-base"
-            >
-              <td className="font-medium">{index + 1}</td>
-              <td>
-                <img className="w-20 h-12" src={food?.image} alt="food-image" />
-              </td>
-              <td>{food?.food_name}</td>
-              <td>{food?.buyer?.email}</td>
-              <td>$ {food?.price}</td>
-              <td>{food?.date}</td>
-              <td className="text-center">
-                <button
-                  onClick={() => handleDeleteFood(food?._id)}
-                  className="text-2xl cursor-pointer text-red-400"
-                >
-                  <RiDeleteBack2Line />
-                </button>
+          {loading ? (
+            <tr>
+              <td
+                colSpan="6"
+                className="text-center py-10 text-xl text-amber-500"
+              >
+                Loading...
               </td>
             </tr>
-          ))}
+          ) : (
+            myFoods.map((food, index) => (
+              <tr
+                key={food._id}
+                className="hover:bg-base-200 transition *:border *:border-gray-200 *:text-base"
+              >
+                <td className="font-medium">{index + 1}</td>
+                <td>
+                  <img
+                    className="w-20 h-12"
+                    src={food?.image}
+                    alt="food-image"
+                  />
+                </td>
+                <td>{food?.food_name}</td>
+                <td>{food?.buyer?.email}</td>
+                <td>$ {food?.price}</td>
+                <td>{food?.date}</td>
+                <td className="text-center">
+                  <button
+                    onClick={() => handleDeleteFood(food?._id)}
+                    className="text-2xl cursor-pointer text-red-400"
+                  >
+                    <RiDeleteBack2Line />
+                  </button>
+                </td>
+              </tr>
+            ))
+          )}
         </tbody>
       </table>
     </div>
