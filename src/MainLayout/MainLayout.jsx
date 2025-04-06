@@ -5,7 +5,7 @@ import Footer from "../components/shared/Footer";
 const MainLayout = () => {
     const {pathname} = useLocation();
     return (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen font-luxurious">
             <header>
                 {pathname !== "/" && <Navbar></Navbar>}
             </header>

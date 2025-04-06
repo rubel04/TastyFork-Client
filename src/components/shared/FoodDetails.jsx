@@ -16,7 +16,6 @@ const FoodDetails = () => {
     food_quantity,
     country,
     description,
-    available_status,
     category,
     purchaseCount
   } = food;
@@ -33,12 +32,6 @@ const FoodDetails = () => {
           alt=""
         />
         <div className="*:grid *:grid-cols-3 md:w-2/3 space-y-4">
-          <div>
-            <p className="text-lg font-medium">Available Status:</p>
-            <p className="col-span-2 badge text-[#23BE0A] text-base bg-[#22be0a11] py-1 px-4 rounded-full">
-              {available_status}
-            </p>
-          </div>
           <div>
             <p className="text-lg font-medium">Category:</p>
             <p className={`${theme === "dark" ? "text-gray-300" : "text-gray-600"} text-lg`}>{category}</p>

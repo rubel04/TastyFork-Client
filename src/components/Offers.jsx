@@ -13,7 +13,7 @@ const Offers = () => {
         <div className="w-11/12 md:w-8/12 mx-auto flex md:flex-row flex-col-reverse gap-6 items-center justify-center py-6 md:py-0">
           {/* text content here */}
           <div className="flex-1">
-            <h4 className="text-3xl md:text-6xl text-white italic">Delicious</h4>
+            <h4 className="text-3xl md:text-7xl text-white font-birthstone">Delicious</h4>
             <h3 className="text-4xl md:text-6xl my-3 font-medium text-white uppercase">
               Special deal offer <br />
               for this week

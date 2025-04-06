@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Birthstone&family=Kaushan+Script&family=Rancho&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Birthstone&family=Kaushan+Script&family=Luxurious+Roman&family=Rancho&display=swap');
+
 @import "tailwindcss";
 @plugin "daisyui";
 
@@ -7,4 +9,11 @@
     font-weight: 400;
     font-style: normal;
   }
+
+  .font-luxurious {
+    font-family: "Luxurious Roman", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
   
