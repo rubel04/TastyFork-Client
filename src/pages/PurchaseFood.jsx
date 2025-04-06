@@ -106,13 +106,13 @@ const PurchaseFood = () => {
           type="text"
           label="Buyer Name"
           disabled={true}
-          defaultValue={buyer?.name}
+          defaultValue={user?.displayName}
         ></Input>
         <Input
           type="email"
           label="Buyer Email"
           disabled={true}
-          defaultValue={buyer?.email}
+          defaultValue={user?.email}
         ></Input>
         {error && <strong>{error}</strong>}
         <button
